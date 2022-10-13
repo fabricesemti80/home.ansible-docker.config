@@ -11,13 +11,12 @@
 - name: Homepage Container
   docker_container:
     name: homepage
-    image: "{{ homepage_docker_image }}"
+    image: ghcr.io/benphelps/homepage:latest
     pull: true
     volumes:
-      # - "{{ homepage_data_directory }}/users.txt:/root/createusers.txt:ro"
       - "{{ homepage_data_directory }}/config:/app/config"
       - "{{ homepage_data_directory }}/icons:/app/public/icons"
-      - "/var/run/docker.sock:/var/run/docker.sock"
+      - "/var/run/docker.sock:/var/run/docker.sock:ro"
     ports:
       - "{{ homepage_port }}:3000"
     privileged: true

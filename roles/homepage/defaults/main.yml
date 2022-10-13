@@ -1,24 +1,17 @@
 ---
 homepage_enabled: false
-homepage_hostname: homepage
+homepage_available_externally: false
 
-homepage_docker_image: "ghcr.io/benphelps/homepage:latest"
+# directories
+homepage_data_directory: "{{ docker_home }}/homepage"
 
-homepage_users:
-  - username: "{{ ansible_nas_user }}"
-    password: "topsecret"
-    sudo: "Y"
+# networking
+homepage_port: "3000"
+homepage_hostname: "homepage"
 
 # uid / gid
 homepage_user_id: "0"
 homepage_group_id: "0"
 
-# Directories
-homepage_data_directory: "{{ docker_home }}/homepage"
-
-# Networking
-homepage_port: 3000
-
-# Container
+# specs
 homepage_memory: 1g
-homepage_container_name: homepage
