@@ -9,10 +9,61 @@
 
 # Add your all.yml config overrides to this file. See group_vars/all.yml for all possible settings.
 
-# Example options
-ansible_nas_hostname: ansible-nas
-ansible_nas_timezone: Etc/UTC
+###
+### Example options
+###
 
-## Enable some applications
-heimdall_enabled: true
+ansible_nas_hostname: yourserver
+ansible_nas_timezone: Europe/London
+ansible_nas_user: youruser                    # Will be added to the docker group to give user command line access to docker
+ansible_nas_email: your@email                 # Your email and domain, used for Let's Encrypt SSL certs
+ansible_nas_domain: yourdomain                # Applications will have subdomain SSL certificates created if Traefik is enabled, e.g. ansible-nas.<your-domain>, nextcloud.<your-domain>
+ansible_python_interpreter: /usr/bin/python3  # What version of python ansible should use on target system (path to spesific binary)
+docker_home: /home/youruser/docker            # docker data
+samba_shares_root: /mnt/Media                 # media data
+traefik_enabled: true
+
+###
+### Secrets
+###
+
+cloudflare_dns_api_token: yourapitoken
+traefik_google_client_id: yourclientid                                            # client ID from the Google project
+traefik_google_client_secret: yourclientsecret                                    # client secret from the Google project
+traefik_forwardauth_secret: yourcookiesecret                                      # cookie secret
+traefik_forwardauth_whitelist: your@email                                         # enabled email
+plex_claim: claim-your claim                                                      # https://www.plex.tv/claim/
+
+###
+### APPLICATION - overrides
+###
+
+### I prefer homepage - https://github.com/benphelps/homepage/ - as a front end
+
+### Application available externally, so I also put this behind Google Oauth2
+homepage_enabled: true                        # enable the actual application
+homepage_available_externally: true           # make it available externally
+
+### Application available externally, so I also put this behind Google Oauth2
 portainer_enabled: true
+portainer_available_externally: true
+
+### Application available externally (consider adding oauth block in ansible-nas-docker/roles/sonarr/tasks/main.yml)
+sonarr_enabled: true
+sonarr_available_externally: true
+
+## Application available externally (consider adding oauth block in ansible-nas-docker/roles/radarr/tasks/main.yml)
+radarr_enabled: true
+radarr_available_externally: true
+
+## Application is not available externally
+transmission_enabled: true
+transmission_available_externally: false
+
+## Application uses Plex-authentication, therefore Oauth omited
+overseerr_enabled: true
+overseerr_available_externally: true
+
+## Application uses Plex-authentication, therefore Oauth omited
+plex_enabled: true
+plex_available_externally: true
