@@ -22,7 +22,8 @@
           - "{{ duplicacy_config_directory }}:/config:rw"
           - "{{ duplicacy_logs_directory }}:/logs:rw"
           - "{{ duplicacy_cache_directory }}:/cache:rw"
-          - "{{ samba_shares_root }}:/backuproot:{{ duplicacy_data_permissions }}"
+          # - "{{ samba_shares_root }}:/backuproot:{{ duplicacy_data_permissions }}" # modified this; I am using duplicacy to backup my docker data, not my media
+          - "{{ docker_home }}:/backuproot:{{ duplicacy_data_permissions }}"
         env:
           DUPLICACY_WEB_VERSION: "{{ duplicacy_web_version }}"
           TZ: "{{ ansible_nas_timezone }}"
@@ -37,6 +38,7 @@
           traefik.http.routers.duplicacy.tls.domains[0].main: "{{ ansible_nas_domain }}"
           traefik.http.routers.duplicacy.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
           traefik.http.services.duplicacy.loadbalancer.server.port: "3875"
+          traefik.http.routers.duplicacy.middlewares: traefik-forward-auth
   when: duplicacy_enabled is true
 
 - name: Stop Duplicacy
