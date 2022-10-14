@@ -35,6 +35,7 @@ traefik_forwardauth_secret: yourcookiesecret                                    
 traefik_forwardauth_whitelist: your@email                                         # enabled email
 plex_claim: claim-your claim                                                      # https://www.plex.tv/claim/
 tailscale_auth_key: your-tailscale-auth-key                                       # https://tailscale.com/kb/1085/auth-keys/
+slack_hook: https://hooks.slack.com/services/your-hook-token                      # https://containrrr.dev/watchtower/notifications/
 
 ###
 ### APPLICATION - overrides

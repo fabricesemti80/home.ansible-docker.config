@@ -24,11 +24,3 @@
     memory: "{{ tailscale_memory }}"
     env:
       AUTHKEY:  "{{ tailscale_auth_key }}"
-    # labels:
-    #   traefik.enable: "{{ tailscale_available_externally | string }}"
-    #   traefik.http.routers.tailscale.rule: "Host(`{{ tailscale_hostname }}.{{ ansible_nas_domain }}`)"
-    #   traefik.http.routers.tailscale.tls.certresolver: "letsencrypt"
-    #   traefik.http.routers.tailscale.tls.domains[0].main: "{{ ansible_nas_domain }}"
-    #   traefik.http.routers.tailscale.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
-    #   traefik.http.services.tailscale.loadbalancer.server.port: "3000"
-    #   traefik.http.routers.tailscale.middlewares: traefik-forward-auth
