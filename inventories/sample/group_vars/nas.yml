@@ -34,6 +34,7 @@ traefik_google_client_secret: yourclientsecret                                  
 traefik_forwardauth_secret: yourcookiesecret                                      # cookie secret
 traefik_forwardauth_whitelist: your@email                                         # enabled email
 plex_claim: claim-your claim                                                      # https://www.plex.tv/claim/
+tailscale_auth_key: your-tailscale-auth-key                                       # https://tailscale.com/kb/1085/auth-keys/
 
 ###
 ### APPLICATION - overrides

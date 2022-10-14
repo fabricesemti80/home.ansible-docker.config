@@ -1,0 +1,34 @@
+---
+- name: Create Tailscale directoryes
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ tailscale_data_directory }}"
+    # - "{{ tailscale_data_directory }}/config"
+    # - "{{ tailscale_data_directory }}/icons"
+
+- name: Tailscale Container
+  docker_container:
+    name: tailscaled
+    image: tailscale/tailscale
+    pull: true
+    volumes:
+      - "/var/lib:/var/lib"
+      - /dev/net/tun:/dev/net/tun
+    # ports:
+    #   - "{{ tailscale_port }}:3000"
+    privileged: true
+    network_mode: host
+    restart_policy: unless-stopped
+    memory: "{{ tailscale_memory }}"
+    env:
+      AUTHKEY:  "{{ tailscale_auth_key }}"
+    # labels:
+    #   traefik.enable: "{{ tailscale_available_externally | string }}"
+    #   traefik.http.routers.tailscale.rule: "Host(`{{ tailscale_hostname }}.{{ ansible_nas_domain }}`)"
+    #   traefik.http.routers.tailscale.tls.certresolver: "letsencrypt"
+    #   traefik.http.routers.tailscale.tls.domains[0].main: "{{ ansible_nas_domain }}"
+    #   traefik.http.routers.tailscale.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+    #   traefik.http.services.tailscale.loadbalancer.server.port: "3000"
+    #   traefik.http.routers.tailscale.middlewares: traefik-forward-auth

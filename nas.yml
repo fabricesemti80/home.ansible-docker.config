@@ -374,6 +374,11 @@
         - syncthing
       when: (syncthing_enabled | default(False))
 
+    - role: tailscale
+      tags:
+        - tailscale
+      when: (tailscale_enabled | default(False))
+
     - role: tautulli
       tags:
         - tautulli
