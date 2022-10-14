@@ -19,6 +19,7 @@
           - "{{ duplicati_data_directory }}:/config:rw"
           - "{{ samba_shares_root }}:/source/shares:{{ duplicati_data_permissions }}"
           - "{{ docker_home }}:/source/docker:{{ duplicati_data_permissions }}"
+          - "{{ docker_backup }}:/backups:rw" # map this for read/write as this will be the destination for data!
           - "/etc/timezone:/etc/timezone:ro"
         env:
           TZ: "{{ ansible_nas_timezone }}"
@@ -33,6 +34,7 @@
           traefik.http.routers.duplicati.tls.domains[0].main: "{{ ansible_nas_domain }}"
           traefik.http.routers.duplicati.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
           traefik.http.services.duplicati.loadbalancer.server.port: "8200"
+          traefik.http.routers.duplicati.middlewares: traefik-forward-auth
   when: duplicati_enabled is true
 
 - name: Stop Duplicati
