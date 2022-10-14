@@ -11,6 +11,7 @@ syncthing_data_directory: "{{ samba_shares_root }}/syncthing"
 #   - "/ansible/nas/filesystem/directory_name:/var/syncthing/directory_name"
 syncthing_volumes:
   - "{{ syncthing_data_directory }}:/var/syncthing/"
+  -  "/home/fabrice/docker:/var/syncthing/docker-data-dir"
 
 syncthing_user_id: "0"
 syncthing_group_id: "0"
