@@ -5,8 +5,6 @@
     state: directory
   with_items:
     - "{{ tailscale_data_directory }}"
-    # - "{{ tailscale_data_directory }}/config"
-    # - "{{ tailscale_data_directory }}/icons"
 
 - name: Tailscale Container
   docker_container:
@@ -17,8 +15,6 @@
       - "{{ tailscale_data_directory }}:/var/lib/tailscale"
       # - "/var/lib:/var/lib"
       - /dev/net/tun:/dev/net/tun
-    # ports:
-    #   - "{{ tailscale_port }}:3000"
     privileged: true
     network_mode: host
     restart_policy: unless-stopped
