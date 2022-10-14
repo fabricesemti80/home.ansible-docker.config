@@ -14,7 +14,8 @@
     image: tailscale/tailscale
     pull: true
     volumes:
-      - "/var/lib:/var/lib"
+      - "{{ tailscale_data_directory }}:/var/lib/tailscale"
+      # - "/var/lib:/var/lib"
       - /dev/net/tun:/dev/net/tun
     # ports:
     #   - "{{ tailscale_port }}:3000"
@@ -24,3 +25,4 @@
     memory: "{{ tailscale_memory }}"
     env:
       AUTHKEY:  "{{ tailscale_auth_key }}"
+      TS_STATE_DIR:  "/var/lib/tailscale"
