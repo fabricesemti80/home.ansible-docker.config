@@ -32,10 +32,16 @@
       TRANSMISSION_WATCH_DIR: "/watch"
       TRANSMISSION_RATIO_LIMIT: "{{ transmission_openvpn_ratio_limit }}"
       TRANSMISSION_RATIO_LIMIT_ENABLED: "{{ transmission_openvpn_ratio_limit_enabled | string }}"
-      OPENVPN_PROVIDER: "{{ openvpn_provider }}"
+      ##* update me, if your provider is different ==>
+      ##? ref: https://github.com/haugene/docker-transmission-openvpn/issues/1172#issuecomment-623982281
       OPENVPN_USERNAME: "{{ openvpn_username }}"
       OPENVPN_PASSWORD: "{{ openvpn_password }}"
-      OPENVPN_CONFIG: "{{ openvpn_config }}"
+      OPENVPN_PROVIDER: NORDVPN
+      NORDVPN_COUNTRY: CH
+      NORDVPN_PROTOCOL: tcp
+      NORDVPN_CATEGORY: P2P
+      OPENVPN_OPTS: "--inactive 3600 --ping 10 --ping-exit 60"                            # https://api.nordvpn.com/v1/servers/countries
+      ##* <== update me, if your provider is different
       WEBPROXY_ENABLED: "true"
       WEBPROXY_PORT: "3128"
       PUID: "{{ transmission_openvpn_user_id }}"
