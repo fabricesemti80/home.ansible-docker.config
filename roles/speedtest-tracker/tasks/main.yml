@@ -32,3 +32,4 @@
       traefik.http.routers.speedtest_tracker.tls.domains[0].main: "{{ ansible_nas_domain }}"
       traefik.http.routers.speedtest_tracker.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
       traefik.http.services.speedtest_tracker.loadbalancer.server.port: "80"
+      traefik.http.routers.speedtest_tracker.middlewares: traefik-forward-auth
