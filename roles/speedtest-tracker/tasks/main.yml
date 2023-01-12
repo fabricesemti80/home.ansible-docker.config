@@ -14,15 +14,18 @@
 - name: Speedtest-Tracker Docker Container
   docker_container:
     name: speedtest-tracker
-    image: henrywhitaker3/speedtest-tracker:latest
+    image: ghcr.io/alexjustesen/speedtest-tracker:latest
     pull: true
     volumes:
       - "{{ speedtest_data_directory }}/config:/config:rw"
     ports:
-      - "{{ speedtest_tracker_port }}:80"
+      - "{{ speedtest_tracker_http_port }}:80"
+      - "{{ speedtest_tracker_https_port }}:443"
     env:
-      OOKLA_EULA_GDPR: "true"
+      #OOKLA_EULA_GDPR: "true"
       TZ: "{{ ansible_nas_timezone }}"
+      PUID: "1000"
+      PGID: "1000"
     restart_policy: unless-stopped
     memory: "1g"
     labels:
