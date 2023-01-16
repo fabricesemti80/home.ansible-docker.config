@@ -19,6 +19,7 @@
     name: traefik-forward-auth
     image: thomseddon/traefik-forward-auth:2
     env: "{{ traefik_forwardauth_environment_variables }}"
+    restart_policy: unless-stopped
     ports:
       - "4181:4181"
     labels:
