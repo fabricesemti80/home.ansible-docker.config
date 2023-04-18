@@ -38,6 +38,7 @@ tailscale_auth_key: your-tailscale-auth-key                                     
 slack_hook: https://hooks.slack.com/services/your-hook-token                      # https://containrrr.dev/watchtower/notifications/
 openvpn_username: yourusername
 openvpn_password: yourpassword
+tunnel_token: 
 
 ###
 ### APPLICATION - overrides

@@ -1,0 +1,17 @@
+---
+cloudflared_enabled: false
+# cloudflared_available_externally: false
+
+# directories
+cloudflared_data_directory: "{{ docker_home }}/cloudflared"
+
+# # networking
+# cloudflared_port: "3000"
+# cloudflared_hostname: "cloudflared"
+
+# uid / gid
+cloudflared_user_id: "0"
+cloudflared_group_id: "0"
+
+# specs
+cloudflared_memory: 1g

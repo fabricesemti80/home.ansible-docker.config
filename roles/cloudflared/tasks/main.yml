@@ -1,0 +1,24 @@
+---
+- name: Create cloudflared directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ cloudflared_data_directory }}"
+
+- name: cloudflared Container
+  docker_container:
+    name: cloudflared
+    image: cloudflare/cloudflared:2023.4.1
+    pull: true
+    volumes:
+      # - "{{ cloudflared_data_directory }}:/var/lib/cloudflared"
+      # - "/var/lib:/var/lib"
+      # - /dev/net/tun:/dev/net/tun
+    privileged: true
+    network_mode: "bridge"
+    restart_policy: unless-stopped
+    memory: "{{ cloudflared_memory }}"
+    env:
+      TUNNEL_TOKEN:  "{{ tunnel_token }}" #! see: ansible-nas-docker/inventories/sample/group_vars/nas.yml
+    command: tunnel --no-autoupdate run

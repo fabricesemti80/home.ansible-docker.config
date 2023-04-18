@@ -1,6 +1,7 @@
 ---
+#? ansible-galaxy install -r requirements.yml --force
 - name: geerlingguy.docker
-  version: 6.0.0
+  version: 6.1.0
 
 - name: bertvv.samba
   version: v2.7.1

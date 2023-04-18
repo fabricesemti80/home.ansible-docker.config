@@ -181,3 +181,14 @@ traefik_forwardauth_whitelist:         # enabled email
     see commit <https://github.com/fabricesemti80/ansible-nas-docker/commit/2b0b325d01cbe40b00535f2f87093739bf16e655> for example
 
     - note: it is not recommended to make this auth globally available; more on this here: https://github.com/davestephens/ansible-nas/issues/425
+
+
+## TL;DR
+
+```sh
+ ansible-playbook -i inventories/my-ansible-nas/inventory nas.yml -b -K
+
+ #or for specific role
+  ansible-playbook -i inventories/my-ansible-nas/inventory nas.yml -b -K --tags cloudflared
+
+ ```
