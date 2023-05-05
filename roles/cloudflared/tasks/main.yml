@@ -9,7 +9,7 @@
 - name: cloudflared Container
   docker_container:
     name: cloudflared
-    image: cloudflare/cloudflared:2023.4.1
+    image: cloudflare/cloudflared:latest
     pull: true
     volumes:
       # - "{{ cloudflared_data_directory }}:/var/lib/cloudflared"
