@@ -14,7 +14,7 @@ watchtower_cron_schedule: 0 0 5 * * *
 # watchtower_command: "--schedule '{{ watchtower_cron_schedule }}' --notifications 'email' --notification-email-from '{{ email_username }}' --notification-email-to '{{ ansible_nas_email }}' --notification-email-server '{{ email_server_address }}' --notification-email-server-port '{{ email_server_port }}' --notification-email-server-user '{{ email_username }}' --notification-email-server-password '{{ email_password }}' --notification-email-delay '2'"
 
 # Slack notifications
-watchtower_command: "--schedule '{{ watchtower_cron_schedule }}' --notifications 'slack' --notification-slack-hook-url '{{ slack_hook }}' --notification-slack-identifier 'ansible-nas'"
+watchtower_command: "--cleanup --schedule '{{ watchtower_cron_schedule }}' --notifications 'slack' --notification-slack-hook-url '{{ slack_hook }}' --notification-slack-identifier 'ansible-nas'"
 
 # specs
 watchtower_memory: 1g
