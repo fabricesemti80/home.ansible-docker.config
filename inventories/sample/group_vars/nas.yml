@@ -35,10 +35,10 @@ traefik_forwardauth_secret: yourcookiesecret                                    
 traefik_forwardauth_whitelist: your@email                                         # enabled email
 plex_claim: claim-your claim                                                      # https://www.plex.tv/claim/
 tailscale_auth_key: your-tailscale-auth-key                                       # https://tailscale.com/kb/1085/auth-keys/
-slack_hook: https://hooks.slack.com/services/your-hook-token                      # https://containrrr.dev/watchtower/notifications/
+slack_hook: https://hooks.slack.com/services/your-hook-token                      # https://containrrr.dev/watchtower/notifications/  # https://discord.com/developers/docs/resources/webhook#execute-slackcompatible-webhook
 openvpn_username: yourusername
 openvpn_password: yourpassword
-tunnel_token: 
+tunnel_token:
 
 ###
 ### APPLICATION - overrides
