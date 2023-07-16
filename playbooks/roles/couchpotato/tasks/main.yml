@@ -29,10 +29,10 @@
         memory: "{{ couchpotato_memory }}"
         labels:
           traefik.enable: "{{ couchpotato_available_externally | string }}"
-          traefik.http.routers.couchpotato.rule: "Host(`couchpotato.{{ ansible_nas_domain }}`)"
+          traefik.http.routers.couchpotato.rule: "Host(`couchpotato.{{ ansible_www_domain }}`)"
           traefik.http.routers.couchpotato.tls.certresolver: "letsencrypt"
-          traefik.http.routers.couchpotato.tls.domains[0].main: "{{ ansible_nas_domain }}"
-          traefik.http.routers.couchpotato.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+          traefik.http.routers.couchpotato.tls.domains[0].main: "{{ ansible_www_domain }}"
+          traefik.http.routers.couchpotato.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
           traefik.http.services.couchpotato.loadbalancer.server.port: "5050"
   when: couchpotato_enabled is true
 

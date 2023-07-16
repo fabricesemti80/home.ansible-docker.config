@@ -30,10 +30,10 @@
         memory: "{{ booksonic_memory }}"
         labels:
           traefik.enable: "{{ booksonic_available_externally | string }}"
-          traefik.http.routers.booksonic.rule: "Host(`{{ booksonic_hostname }}.{{ ansible_nas_domain }}`)"
+          traefik.http.routers.booksonic.rule: "Host(`{{ booksonic_hostname }}.{{ ansible_www_domain }}`)"
           traefik.http.routers.booksonic.tls.certresolver: "letsencrypt"
-          traefik.http.routers.booksonic.tls.domains[0].main: "{{ ansible_nas_domain }}"
-          traefik.http.routers.booksonic.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+          traefik.http.routers.booksonic.tls.domains[0].main: "{{ ansible_www_domain }}"
+          traefik.http.routers.booksonic.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
           traefik.http.services.booksonic.loadbalancer.server.port: "4040"
   when: booksonic_enabled is true
 

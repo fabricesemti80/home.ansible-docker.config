@@ -26,10 +26,10 @@
         memory: "{{ esphome_memory }}"
         labels:
           traefik.enable: "{{ esphome_available_externally | string }}"
-          traefik.http.routers.esphome.rule: "Host(`{{ esphome_hostname }}.{{ ansible_nas_domain }}`)"
+          traefik.http.routers.esphome.rule: "Host(`{{ esphome_hostname }}.{{ ansible_www_domain }}`)"
           traefik.http.routers.esphome.tls.certresolver: "letsencrypt"
-          traefik.http.routers.esphome.tls.domains[0].main: "{{ ansible_nas_domain }}"
-          traefik.http.routers.esphome.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+          traefik.http.routers.esphome.tls.domains[0].main: "{{ ansible_www_domain }}"
+          traefik.http.routers.esphome.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
           traefik.http.services.esphome.loadbalancer.server.port: "80"
   when: esphome_enabled is true
 

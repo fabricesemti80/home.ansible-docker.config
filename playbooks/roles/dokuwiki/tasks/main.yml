@@ -25,10 +25,10 @@
         memory: "{{ dokuwiki_memory }}"
         labels:
           traefik.enable: "{{ dokuwiki_available_externally | string }}"
-          traefik.http.routers.dokuwiki.rule: "Host(`{{ dokuwiki_hostname }}.{{ ansible_nas_domain }}`)"
+          traefik.http.routers.dokuwiki.rule: "Host(`{{ dokuwiki_hostname }}.{{ ansible_www_domain }}`)"
           traefik.http.routers.dokuwiki.tls.certresolver: "letsencrypt"
-          traefik.http.routers.dokuwiki.tls.domains[0].main: "{{ ansible_nas_domain }}"
-          traefik.http.routers.dokuwiki.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+          traefik.http.routers.dokuwiki.tls.domains[0].main: "{{ ansible_www_domain }}"
+          traefik.http.routers.dokuwiki.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
           traefik.http.services.dokuwiki.loadbalancer.server.port: "80"
   when: dokuwiki_enabled is true
 

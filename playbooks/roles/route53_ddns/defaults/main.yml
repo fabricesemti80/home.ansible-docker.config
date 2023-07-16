@@ -13,7 +13,7 @@ route53_secret_key: "{{ mandatory }}"
 route53_hosted_zone_id: "{{ mandatory }}"
 
 # The hostname to update
-route53_host: "*.{{ ansible_nas_domain }}"
+route53_host: "*.{{ ansible_www_domain }}"
 
 # The Time-To-Live for the DNS entry
 route53_ttl: 600

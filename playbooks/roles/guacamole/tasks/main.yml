@@ -38,10 +38,10 @@
     memory: "{{ guacamole_memory }}"
     labels:
       traefik.enable: "{{ guacamole_available_externally | string }}"
-      traefik.http.routers.guacamole.rule: "Host(`{{ guacamole_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.guacamole.rule: "Host(`{{ guacamole_hostname }}.{{ ansible_www_domain }}`)"
       traefik.http.routers.guacamole.tls.certresolver: "letsencrypt"
-      traefik.http.routers.guacamole.tls.domains[0].main: "{{ ansible_nas_domain }}"
-      traefik.http.routers.guacamole.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.routers.guacamole.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.guacamole.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.guacamole.loadbalancer.server.port: "8080"
 
 - name: Restart Guacamole Container

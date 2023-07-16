@@ -1,5 +1,5 @@
 ---
-- name: Create Homepage directoryes
+- name: Create Homepage directories
   file:
     path: "{{ item }}"
     state: directory
@@ -24,9 +24,9 @@
     memory: "{{ homepage_memory }}"
     labels:
       traefik.enable: "{{ homepage_available_externally | string }}"
-      traefik.http.routers.homepage.rule: "Host(`{{ homepage_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.homepage.rule: "Host(`{{ homepage_hostname }}.{{ ansible_www_domain }}`)"
       traefik.http.routers.homepage.tls.certresolver: "letsencrypt"
-      traefik.http.routers.homepage.tls.domains[0].main: "{{ ansible_nas_domain }}"
-      traefik.http.routers.homepage.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.routers.homepage.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.homepage.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.homepage.loadbalancer.server.port: "3000"
       traefik.http.routers.homepage.middlewares: traefik-forward-auth

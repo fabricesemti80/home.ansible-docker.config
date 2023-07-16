@@ -20,8 +20,8 @@
     memory: "{{ rssbridge_memory }}"
     labels:
       traefik.enable: "{{ rssbridge_available_externally | string }}"
-      traefik.http.routers.rssbridge.rule: "Host(`{{ rssbridge_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.rssbridge.rule: "Host(`{{ rssbridge_hostname }}.{{ ansible_www_domain }}`)"
       traefik.http.routers.rssbridge.tls.certresolver: "letsencrypt"
-      traefik.http.routers.rssbridge.tls.domains[0].main: "{{ ansible_nas_domain }}"
-      traefik.http.routers.rssbridge.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.routers.rssbridge.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.rssbridge.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.rssbridge.loadbalancer.server.port: "80"

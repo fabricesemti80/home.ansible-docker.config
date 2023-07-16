@@ -30,9 +30,9 @@
     memory: "1g"
     labels:
       traefik.enable: "{{ speedtest_tracker_available_externally | string }}"
-      traefik.http.routers.speedtest_tracker.rule: "Host(`{{ speedtest_tracker_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.speedtest_tracker.rule: "Host(`{{ speedtest_tracker_hostname }}.{{ ansible_www_domain }}`)"
       traefik.http.routers.speedtest_tracker.tls.certresolver: "letsencrypt"
-      traefik.http.routers.speedtest_tracker.tls.domains[0].main: "{{ ansible_nas_domain }}"
-      traefik.http.routers.speedtest_tracker.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.routers.speedtest_tracker.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.speedtest_tracker.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.speedtest_tracker.loadbalancer.server.port: "80"
       traefik.http.routers.speedtest_tracker.middlewares: traefik-forward-auth

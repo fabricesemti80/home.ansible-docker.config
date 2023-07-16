@@ -38,13 +38,13 @@
       MYSQL_DATABASE: "nextcloud"
       MYSQL_USER: "{{ nextcloud_sql_user }}"
       MYSQL_PASSWORD: "{{ nextcloud_sql_password }}"
-      NEXTCLOUD_TRUSTED_DOMAINS: "{{ nextcloud_hostname }}.{{ ansible_nas_domain }}"
+      NEXTCLOUD_TRUSTED_DOMAINS: "{{ nextcloud_hostname }}.{{ ansible_www_domain }}"
     restart_policy: unless-stopped
     memory: "{{ nextcloud_memory }}"
     labels:
       traefik.enable: "{{ nextcloud_available_externally | string }}"
-      traefik.http.routers.nextcloud.rule: "Host(`{{ nextcloud_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.nextcloud.rule: "Host(`{{ nextcloud_hostname }}.{{ ansible_www_domain }}`)"
       traefik.http.routers.nextcloud.tls.certresolver: "letsencrypt"
-      traefik.http.routers.nextcloud.tls.domains[0].main: "{{ ansible_nas_domain }}"
-      traefik.http.routers.nextcloud.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.routers.nextcloud.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.nextcloud.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.nextcloud.loadbalancer.server.port: "80"

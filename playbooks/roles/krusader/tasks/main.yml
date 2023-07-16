@@ -27,8 +27,8 @@
     memory: "{{ krusader_memory }}"
     labels:
       traefik.enable: "{{ krusader_available_externally }}"
-      traefik.http.routers.krusader.rule: "Host(`{{ krusader_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.krusader.rule: "Host(`{{ krusader_hostname }}.{{ ansible_www_domain }}`)"
       traefik.http.routers.krusader.tls.certresolver: "letsencrypt"
-      traefik.http.routers.krusader.tls.domains[0].main: "{{ ansible_nas_domain }}"
-      traefik.http.routers.krusader.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.routers.krusader.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.krusader.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.krusader.loadbalancer.server.port: "5800"

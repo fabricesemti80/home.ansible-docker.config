@@ -45,8 +45,8 @@
     memory: 1g
     labels:
       traefik.enable: "{{ stats_grafana_available_externally | string }}"
-      traefik.http.routers.grafana.rule: "Host(`grafana.{{ ansible_nas_domain }}`) "
+      traefik.http.routers.grafana.rule: "Host(`grafana.{{ ansible_www_domain }}`) "
       traefik.http.routers.grafana.tls.certresolver: "letsencrypt"
-      traefik.http.routers.grafana.tls.domains[0].main: "{{ ansible_nas_domain }}"
-      traefik.http.routers.grafana.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.routers.grafana.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.grafana.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.grafana.loadbalancer.server.port: "3000"

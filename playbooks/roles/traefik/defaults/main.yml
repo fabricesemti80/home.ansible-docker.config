@@ -45,8 +45,8 @@ traefik_forwardauth_environment_variables:
   PROVIDERS_GOOGLE_CLIENT_SECRET: "{{ traefik_google_client_secret }}"
   SECRET: "{{ traefik_forwardauth_secret }}"
   INSECURE_COOKIE: "true"
-  AUTH_HOST: "{{ traefik_forwardauth_hostname }}.{{ ansible_nas_domain }}"
-  COOKIE_DOMAIN: "{{ ansible_nas_domain }}"
+  AUTH_HOST: "{{ traefik_forwardauth_hostname }}.{{ ansible_www_domain }}"
+  COOKIE_DOMAIN: "{{ ansible_www_domain }}"
   WHITELIST: "{{ traefik_forwardauth_whitelist }}"
 
 # specs

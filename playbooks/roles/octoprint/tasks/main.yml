@@ -26,8 +26,8 @@
       ENABLE_MJPG_STREAMER: "{{ octoprint_enable_webcam | string }}"
     labels:
       traefik.enable: "{{ octoprint_available_externally | string }}"
-      traefik.http.routers.octoprint.rule: "Host(`{{ octoprint_hostname }}.{{ ansible_nas_domain }}`)"
+      traefik.http.routers.octoprint.rule: "Host(`{{ octoprint_hostname }}.{{ ansible_www_domain }}`)"
       traefik.http.routers.octoprint.tls.certresolver: "letsencrypt"
-      traefik.http.routers.octoprint.tls.domains[0].main: "{{ ansible_nas_domain }}"
-      traefik.http.routers.octoprint.tls.domains[0].sans: "*.{{ ansible_nas_domain }}"
+      traefik.http.routers.octoprint.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.octoprint.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.octoprint.loadbalancer.server.port: "80"

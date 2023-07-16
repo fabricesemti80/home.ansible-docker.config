@@ -1,5 +1,5 @@
 ---
-- name: Create Tailscale directoryes
+- name: Create Tailscale directories
   file:
     path: "{{ item }}"
     state: directory
