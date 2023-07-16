@@ -1,6 +1,5 @@
 ---
-- hosts: all
-
+- hosts: "{{ targets }}" #? -e targets=nas
 
   roles:
     ###
