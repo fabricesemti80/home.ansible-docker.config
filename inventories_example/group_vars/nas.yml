@@ -16,7 +16,7 @@
 ansible_nas_hostname: yourserver
 ansible_nas_timezone: Europe/London
 ansible_nas_user: youruser                    # Will be added to the docker group to give user command line access to docker
-ansible_nas_email: your@email                 # Your email and domain, used for Let's Encrypt SSL certs
+ansible_www_email: your@email                 # Your email and domain, used for Let's Encrypt SSL certs
 ansible_www_domain: yourdomain                # Applications will have subdomain SSL certificates created if Traefik is enabled, e.g. ansible-nas.<your-domain>, nextcloud.<your-domain>
 ansible_python_interpreter: /usr/bin/python3  # What version of python ansible should use on target system (path to spesific binary)
 docker_home: /home/youruser/docker            # docker data
