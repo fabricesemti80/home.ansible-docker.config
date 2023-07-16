@@ -1,0 +1,62 @@
+---
+- hosts: "{{ targets }}" #? -e targets=nas
+
+  roles:
+    ###
+    ### Requirements
+    ###
+
+    - role: ansible-auto-users
+      tags:
+        - ansible-auto-users
+        - ansible-auto
+
+    - role: ansible-mount
+      tags:
+        - ansible-mount
+        - ansible-auto
+
+    - role: bertvv.samba
+      tags:
+        - samba
+        - skip_ansible_lint
+
+    - role: geerlingguy.nfs
+      tags:
+        - nfs
+        - skip_ansible_lint
+
+    - role: geerlingguy.docker
+      tags:
+        - docker
+        - skip_ansible_lint
+
+    ###
+    ### Ansible-AUTO Roles
+    ###
+    - role: ansible-auto-general
+      tags:
+        - ansible-auto-general
+        - ansible-auto
+
+    - role: ansible-auto-docker
+      tags:
+        - ansible-auto-docker
+        - ansible-auto
+
+
+
+
+# # /etc/fstab: static file system information.
+# #
+# # Use 'blkid' to print the universally unique identifier for a
+# # device; this may be used with UUID= as a more robust way to name devices
+# # that works even if disks are added and removed. See fstab(5).
+# #
+# # <file system> <mount point>   <type>  <options>       <dump>  <pass>
+# # / was on /dev/vda2 during curtin installation
+# /dev/disk/by-uuid/136af33d-796e-46a4-8074-9033161d7b57 / ext4 defaults 0 1
+# /swap.img       none    swap    sw      0       0
+
+# 10.0.0.2:/docker-media /mnt/Media  nfs     rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0 0
+# 10.0.0.2:/docker-backup /mnt/Backup  nfs     rw,hard,intr,rsize=8192,wsize=8192,timeo=14 0 0

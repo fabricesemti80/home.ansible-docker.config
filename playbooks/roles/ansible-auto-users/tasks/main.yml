@@ -1,0 +1,15 @@
+---
+- name: Create ansible-auto group
+  group:
+    name: ansible-auto
+    state: present
+
+- name: Create ansible-auto user
+  user:
+    name: ansible-auto
+    state: present
+    system: yes
+    update_password: on_create
+    create_home: no
+    group: ansible-auto
+    shell: /usr/sbin/nologin

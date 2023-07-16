@@ -1,0 +1,16 @@
+---
+- name: Mount Docker - media
+  ansible.posix.mount:
+    src: 10.0.0.2:/docker-media
+    path: /mnt/Media
+    opts: rw,hard,intr,rsize=8192,wsize=8192,timeo=14
+    state: mounted
+    fstype: nfs
+
+- name: Mount Docker - backups
+  ansible.posix.mount:
+    src: 10.0.0.2:/docker-backup
+    path: /mnt/Backup
+    opts: rw,hard,intr,rsize=8192,wsize=8192,timeo=14
+    state: mounted
+    fstype: nfs
