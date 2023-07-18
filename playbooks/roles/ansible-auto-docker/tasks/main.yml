@@ -38,6 +38,28 @@
     content: "{{ docker_daemon_json | to_nice_json }}"
   register: docker_config
 
+- name: Create override directory
+  file:
+    path: /etc/systemd/system/docker.service.d
+    state: directory
+    mode: '0755'  # Adjust the mode as needed
+    owner: root
+    group: root
+
+- name: Create or update the override.conf file
+  lineinfile:
+    path: /etc/systemd/system/docker.service.d/override.conf
+    create: yes
+    line: |
+      [Service]
+      ExecStart=
+      ExecStart=/usr/bin/dockerd
+
+- name: Reload daemons
+  ansible.builtin.systemd:
+    daemon_reload: true
+  when: docker_config.changed
+
 - name: Restart Docker # noqa no-handler
   service:
     name: docker

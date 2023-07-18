@@ -15,3 +15,4 @@ docker_storage_driver: overlay2
 docker_daemon_json:
   data-root: "{{ docker_image_directory }}"
   storage-driver: "{{ docker_storage_driver }}"
+  hosts: ["tcp://0.0.0.0:2375", "unix:///var/run/docker.sock"]
