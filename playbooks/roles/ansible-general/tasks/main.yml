@@ -1,7 +1,7 @@
 ---
 - name: Set login banner
   copy:
-    src: motd.txt
+    src: "{{ ansible_motd_file }}"
     dest: /etc/motd
 
 - name: Update apt-cache

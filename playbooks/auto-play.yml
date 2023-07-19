@@ -6,20 +6,10 @@
     ###! Requirements
     ###
 
-    - role: ansible-auto-users
-      tags:
-        - ansible-users
-        - ansible-auto
-
     - role: geerlingguy.nfs
       tags:
         - nfs
         - skip_ansible_lint
-
-    - role: ansible-mount
-      tags:
-        - ansible-mount
-        - ansible-auto
 
     - role: bertvv.samba
       tags:
@@ -34,14 +24,25 @@
     ###
     ###! Ansible-AUTO Roles
     ###
+
+    - role: ansible-users
+      tags:
+        - ansible-users
+        - ansible-auto
+
+    - role: ansible-mount
+      tags:
+        - ansible-mount
+        - ansible-auto
+
     - role: ansible-general
       tags:
         - ansible-general
         - ansible-auto
 
-    - role: ansible-auto-docker
+    - role: ansible-docker
       tags:
-        - ansible-auto-docker
+        - ansible-docker
         - ansible-auto
 
     ###
