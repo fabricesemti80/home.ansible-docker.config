@@ -10,11 +10,11 @@ Set `virtual_desktop_enabled: true` in your `inventories/<your_inventory>/nas.ym
 
 ## Specific Configuration
 
-By default `ansible_nas_user` will be granted access with a password of `topsecret` with sudo rights. To change or add additional users override `vd_users` in your `nas.yml`:
+By default `ansible_user` will be granted access with a password of `topsecret` with sudo rights. To change or add additional users override `vd_users` in your `nas.yml`:
 
 ```yaml
 vd_users:
-  - username: "{{ ansible_nas_user }}"
+  - username: "{{ ansible_user }}"
     password: "topsecret"
     sudo: "Y"
   - username: "larrylaffer"

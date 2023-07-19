@@ -28,7 +28,7 @@
 
 - name: Add user account to Docker group
   user:
-    name: "{{ ansible_nas_user }}"
+    name: "{{ ansible_user }}"
     groups: docker
     append: yes
 
@@ -45,6 +45,7 @@
     mode: '0755'  # Adjust the mode as needed
     owner: root
     group: root
+  when: docker_config.changed
 
 - name: Create or update the override.conf file
   lineinfile:
@@ -54,6 +55,7 @@
       [Service]
       ExecStart=
       ExecStart=/usr/bin/dockerd
+  when: docker_config.changed
 
 - name: Reload daemons
   ansible.builtin.systemd:

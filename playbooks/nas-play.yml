@@ -38,10 +38,10 @@
         - ansible-nas-general
         - ansible-nas
 
-    - role: ansible-nas-docker
+    - role: ansible-docker
       tags:
-        - ansible-nas-docker
-        - ansible-nas
+        - ansible-docker
+        # - ansible-nas
 
     ###
     ###! Applications
