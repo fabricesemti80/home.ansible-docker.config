@@ -36,12 +36,12 @@
   timezone:
     name: "{{ ansible_timezone }}"
 
-- name: "Permission share directories"
+- name: "Permission share directories for {{ ansible_create_group }} and {{ ansible_create_user }}"
   file:
     path: "{{ item.path }}"
     state: directory
-    owner: ansible-nas
-    group: ansible-nas
+    owner: "{{ ansible_create_user }}"
+    group: "{{ ansible_create_group }}"
     mode: "u=rwX,g=rwX,o=rX"
     recurse: false
   loop: "{{ samba_shares }}"

@@ -11,5 +11,5 @@
     system: yes
     update_password: on_create
     create_home: no
-    group: ansible-nas
+    group: "{{ ansible_create_group }}"
     shell: /usr/sbin/nologin

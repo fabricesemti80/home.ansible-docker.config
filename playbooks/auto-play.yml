@@ -8,7 +8,7 @@
 
     - role: ansible-auto-users
       tags:
-        - ansible-auto-users
+        - ansible-users
         - ansible-auto
 
     - role: geerlingguy.nfs
@@ -34,9 +34,9 @@
     ###
     ###! Ansible-AUTO Roles
     ###
-    - role: ansible-auto-general
+    - role: ansible-general
       tags:
-        - ansible-auto-general
+        - ansible-general
         - ansible-auto
 
     - role: ansible-auto-docker
