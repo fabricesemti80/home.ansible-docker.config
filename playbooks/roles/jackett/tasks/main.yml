@@ -17,7 +17,7 @@
     ports:
       - "{{ jackett_port }}:9117"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
     restart_policy: unless-stopped
     memory: "{{ jackett_memory }}"
     labels:

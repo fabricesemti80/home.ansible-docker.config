@@ -17,7 +17,7 @@
       - "/var/run/docker.sock:/var/run/docker.sock"
       - "{{ gotify_data_directory }}:/app/data:rw"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ gotify_user_id }}"
       PGID: "{{ gotify_group_id }}"
     restart_policy: unless-stopped

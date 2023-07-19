@@ -5,10 +5,6 @@
     ###
     ###! Requirements
     ###
-    - role: ansible-nas-users
-      tags:
-        - ansible-nas-users
-        - ansible-nas
 
     - role: bertvv.samba
       tags:
@@ -20,11 +16,6 @@
         - nfs
         - skip_ansible_lint
 
-    - role: ansible-mount
-      tags:
-        - ansible-mount
-        - ansible-auto
-
     - role: geerlingguy.docker
       tags:
         - docker
@@ -33,15 +24,26 @@
     ###
     ###! Ansible-NAS Roles
     ###
-    - role: ansible-nas-general
+
+    - role: ansible-users
       tags:
-        - ansible-nas-general
+        - ansible-users
+        - ansible-nas
+
+    - role: ansible-mount
+      tags:
+        - ansible-mount
+        - ansible-nas
+
+    - role: ansible-general
+      tags:
+        - ansible-general
         - ansible-nas
 
     - role: ansible-docker
       tags:
         - ansible-docker
-        # - ansible-nas
+        - ansible-nas
 
     ###
     ###! Applications
@@ -306,11 +308,6 @@
       tags:
         - paperless_ng
       when: (paperless_ng_enabled | default(False))
-
-    # - role: phpipam
-    #   tags:
-    #     - phpipam
-    #   when: (phpipam_enabled | default(False))
 
     - role: piwigo
       tags:

@@ -16,7 +16,7 @@
     env:
       PUID: "{{ organizr_user_id }}"
       PGID: "{{ organizr_group_id }}"
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
     ports:
       - "{{ organizr_port_http }}:80"
       - "{{ organizr_port_https }}:443"

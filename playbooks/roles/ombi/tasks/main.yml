@@ -14,7 +14,7 @@
     ports:
       - "{{ ombi_port }}:3579"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ ombi_user_id }}"
       PGID: "{{ ombi_group_id }}"
     restart_policy: unless-stopped

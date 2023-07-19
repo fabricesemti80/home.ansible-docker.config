@@ -23,7 +23,7 @@
         ports:
           - "{{ booksonic_port }}:4040"
         env:
-          TZ: "{{ ansible_nas_timezone }}"
+          TZ: "{{ ansible_timezone }}"
           PUID: "{{ booksonic_user_id }}"
           PGID: "{{ booksonic_group_id }}"
         restart_policy: unless-stopped

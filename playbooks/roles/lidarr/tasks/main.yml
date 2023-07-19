@@ -16,7 +16,7 @@
     ports:
       - "{{ lidarr_port }}:8686"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ lidarr_user_id }}"
       PGID: "{{ lidarr_group_id }}"
     restart_policy: unless-stopped

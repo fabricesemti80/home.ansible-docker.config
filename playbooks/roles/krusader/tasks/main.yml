@@ -21,7 +21,7 @@
       USER_ID: "{{ krusader_user_id }}"
       GROUP_ID: "{{ krusader_group_id }}"
       SECURE_CONNECTION: "{{ krusader_secure_connection }}"
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       VNC_PASSWORD: "{{ krusader_vnc_password }}"
     restart_policy: unless-stopped
     memory: "{{ krusader_memory }}"

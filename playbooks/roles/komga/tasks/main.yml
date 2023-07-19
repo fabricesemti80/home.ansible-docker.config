@@ -22,7 +22,7 @@
     ports:
       - "{{ komga_port_http }}:8080"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ komga_user_id }}"
       PGID: "{{ komga_group_id }}"
     restart_policy: unless-stopped

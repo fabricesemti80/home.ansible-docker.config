@@ -49,7 +49,7 @@
           DB_DATABASE: "firefly"
           DB_USERNAME: "firefly"
           DB_PASSWORD: "firefly"
-          TZ: "{{ ansible_nas_timezone }}"
+          TZ: "{{ ansible_timezone }}"
         restart_policy: unless-stopped
         memory: "{{ firefly_memory }}"
         labels:

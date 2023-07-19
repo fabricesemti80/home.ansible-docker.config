@@ -16,7 +16,7 @@
       - "{{ homebridge_config_directory }}:/homebridge"
     network_mode: "host"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PGID: "{{ homebridge_group_id }}"
       PUID: "{{ homebridge_user_id }}"
       HOMEBRIDGE_CONFIG_UI: "1"

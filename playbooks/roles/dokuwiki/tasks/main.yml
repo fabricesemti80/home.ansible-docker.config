@@ -18,7 +18,7 @@
         ports:
           - "{{ dokuwiki_port }}:80"
         env:
-          TZ: "{{ ansible_nas_timezone }}"
+          TZ: "{{ ansible_timezone }}"
           PUID: "{{ dokuwiki_user_id }}"
           PGID: "{{ dokuwiki_group_id }}"
         restart_policy: unless-stopped

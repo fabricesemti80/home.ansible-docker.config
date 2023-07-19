@@ -16,7 +16,7 @@ transmission_webui_port: "9092"
 transmission_external_port: "51414"
 transmission_hostname: "transmission"
 
-transmission_timezone: "{{ ansible_nas_timezone }}"
+transmission_timezone: "{{ ansible_timezone }}"
 
 # specs
 transmission_memory: 1g

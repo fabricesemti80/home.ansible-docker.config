@@ -21,7 +21,7 @@
           - "{{ emby_port_http }}:8096"
           - "{{ emby_port_https }}:8920"
         env:
-          TZ: "{{ ansible_nas_timezone }}"
+          TZ: "{{ ansible_timezone }}"
           PUID: "{{ emby_user_id }}"
           PGID: "{{ emby_group_id }}"
         restart_policy: unless-stopped

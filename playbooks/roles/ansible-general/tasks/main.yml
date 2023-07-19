@@ -21,20 +21,20 @@
 
 - name: Install some packages
   apt:
-    name: "{{ ansible_nas_extra_packages }}"
+    name: "{{ ansible_extra_packages }}"
     state: present
   register: result
   until: result is succeeded
 
 #  - name: Configure smartmontools
 
-- name: "Set hostname to {{ ansible_nas_hostname }}"
+- name: "Set hostname to {{ ansible_hostname }}"
   hostname:
-    name: "{{ ansible_nas_hostname }}"
+    name: "{{ ansible_hostname }}"
 
-- name: "Set timezone to {{ ansible_nas_timezone }}"
+- name: "Set timezone to {{ ansible_timezone }}"
   timezone:
-    name: "{{ ansible_nas_timezone }}"
+    name: "{{ ansible_timezone }}"
 
 - name: "Permission share directories"
   file:

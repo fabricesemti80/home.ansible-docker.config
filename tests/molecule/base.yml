@@ -18,7 +18,7 @@ provisioner:
       all:
         samba_shares_root: /shares
         ansible_www_domain: ansible-nas.io
-        ansible_nas_timezone: Europe/London
+        ansible_timezone: Europe/London
         audiobooks_root: /audiobooks
         books_root: /books
         code_root: /code

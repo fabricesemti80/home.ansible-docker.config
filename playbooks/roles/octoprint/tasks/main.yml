@@ -21,7 +21,7 @@
     restart_policy: unless-stopped
     memory: "{{ octoprint_memory }}"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       MJPG_STREAMER_INPUT: "-n -r 1080x1024 -f 30"
       ENABLE_MJPG_STREAMER: "{{ octoprint_enable_webcam | string }}"
     labels:

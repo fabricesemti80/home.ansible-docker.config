@@ -17,7 +17,7 @@
       - "{{ comics_root }}:/comics"
       - "{{ books_root }}:/books"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ ubooquity_user_id }}"
       PGID: "{{ ubooquity_group_id }}"
       MAXMEM: "1024"

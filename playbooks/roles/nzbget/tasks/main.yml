@@ -17,7 +17,7 @@
     ports:
       - "{{ nzbget_port }}:6789"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ nzbget_user_id }}"
       PGID: "{{ nzbget_group_id }}"
     restart_policy: unless-stopped

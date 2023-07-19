@@ -1,12 +1,12 @@
 ---
-- name: Create ansible-nas group
+- name: Create "{{ ansible_create_group }}" group
   group:
-    name: ansible-nas
+    name: "{{ ansible_create_group }}"
     state: present
 
-- name: Create ansible-nas user
+- name: Create "{{ ansible_create_user }}" user
   user:
-    name: ansible-nas
+    name: "{{ ansible_create_user }}"
     state: present
     system: yes
     update_password: on_create

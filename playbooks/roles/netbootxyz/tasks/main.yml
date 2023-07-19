@@ -21,7 +21,7 @@
       - "{{ netbootxyz_port_tftp }}:69/udp"
     memory: "{{ netbootxyz_memory }}"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ netbootxyz_user_id }}"
       PGID: "{{ netbootxyz_group_id }}"
     restart_policy: unless-stopped

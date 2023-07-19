@@ -19,7 +19,7 @@
     ports:
       - "{{ sickchill_port }}:8081"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ sickchill_user_id }}"
       PGID: "{{ sickchill_group_id }}"
     restart_policy: unless-stopped

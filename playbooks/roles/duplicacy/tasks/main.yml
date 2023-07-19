@@ -26,7 +26,7 @@
           - "{{ docker_home }}:/backuproot:{{ duplicacy_data_permissions }}"
         env:
           DUPLICACY_WEB_VERSION: "{{ duplicacy_web_version }}"
-          TZ: "{{ ansible_nas_timezone }}"
+          TZ: "{{ ansible_timezone }}"
           USR_ID: "{{ duplicacy_user_id }}"
           GRP_ID: "{{ duplicacy_group_id }}"
         restart_policy: unless-stopped

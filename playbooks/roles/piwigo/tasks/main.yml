@@ -36,7 +36,7 @@
     ports:
       - "{{ piwigo_port }}:80"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ piwigo_user_id }}"
       PGID: "{{ piwigo_group_id }}"
       VERSION: "{{ piwigo_version }}"

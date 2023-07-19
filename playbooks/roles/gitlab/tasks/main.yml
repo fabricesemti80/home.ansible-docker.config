@@ -42,7 +42,7 @@
       - "{{ gitlab_port_https }}:443"
       - "{{ gitlab_port_ssh }}:22"
     env:
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
       PUID: "{{ gitlab_user_id }}"
       PGID: "{{ gitlab_group_id }}"
     restart_policy: unless-stopped

@@ -22,7 +22,7 @@
         ports:
           - "{{ couchpotato_port }}:5050"
         env:
-          TZ: "{{ ansible_nas_timezone }}"
+          TZ: "{{ ansible_timezone }}"
           PUID: "{{ couchpotato_user_id }}"
           PGID: "{{ couchpotato_group_id }}"
         restart_policy: unless-stopped

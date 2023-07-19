@@ -44,7 +44,7 @@
           DB_USER: "gitea"
           DB_PASSWD: "gitea"
           RUN_MODE: "prod"
-          SSH_DOMAIN: "{{ ansible_nas_hostname }}"
+          SSH_DOMAIN: "{{ ansible_hostname }}"
           SSH_PORT: "{{ gitea_port_ssh }}"
           ROOT_URL: "http://{{ gitea_hostname }}:{{ gitea_port_http }}/"
           USER_UID: "1000"

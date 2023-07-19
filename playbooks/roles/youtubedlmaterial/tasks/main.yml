@@ -28,7 +28,7 @@
       - "{{ youtubedlmaterial_port_http }}:17442"
     env:
       ALLOW_CONFIG_MUTATIONS: "true"
-      TZ: "{{ ansible_nas_timezone }}"
+      TZ: "{{ ansible_timezone }}"
     restart_policy: unless-stopped
     memory: "{{ youtubedlmaterial_memory }}"
     labels:
