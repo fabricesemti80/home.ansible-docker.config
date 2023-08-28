@@ -24,7 +24,7 @@
           traefik.http.routers.code_server.tls.certresolver: "letsencrypt"
           traefik.http.routers.code_server.tls.domains[0].main: "{{ ansible_www_domain }}"
           traefik.http.routers.code_server.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
-          traefik.http.services.code_server.loadbalancer.server.port: "8443"
+          traefik.http.services.code_server.loadbalancer.server.port: "8444"
           traefik.http.routers.code_server.middlewares: traefik-forward-auth
   when: code_server_enabled is true
 
