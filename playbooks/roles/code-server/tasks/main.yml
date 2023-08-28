@@ -10,7 +10,7 @@
           - "{{ code_server_config_directory }}:/config"
           - "{{ code_server_projects_directory }}:/code:rw"
         ports:
-          - "{{ code_server_port }}:8443"
+          - "{{ code_server_port }}:8444"
         env:
           TZ: "{{ ansible_timezone }}"
           DEFAULT_WORKSPACE: "/code"
