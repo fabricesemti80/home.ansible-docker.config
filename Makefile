@@ -9,6 +9,7 @@ all:
 # build my NAS
 nas:
 	@echo " \e[0;35m ---> Building NAS server \e[0m "
+	- 	git pull
 	-	@ansible-playbook playbooks/nas-play.yml -e targets=nas_grp -b -K
 
 # build my NAS dry-run
