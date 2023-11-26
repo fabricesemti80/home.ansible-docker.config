@@ -51,4 +51,4 @@
       traefik.http.routers.nextcloud.tls.domains[0].main: "{{ ansible_www_domain }}"
       traefik.http.routers.nextcloud.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
       traefik.http.services.nextcloud.loadbalancer.server.port: "80"
-      traefik.http.routers.nextcloud.middlewares: traefik-forward-auth
+      # traefik.http.routers.nextcloud.middlewares: traefik-forward-auth

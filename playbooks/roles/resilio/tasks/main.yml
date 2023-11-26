@@ -1,0 +1,33 @@
+---
+- name: Create resilio Directories
+  file:
+    path: "{{ item }}"
+    state: directory
+  with_items:
+    - "{{ resilio_data_directory }}"
+    - "{{ resilio_baqckup_directory }}"
+
+- name: Create resilio Docker Container
+  docker_container:
+    name: resilio
+    image: lscr.io/linuxserver/resilio-sync:latest
+    pull: true
+    volumes:
+      - "{{ resilio_data_directory }}:/config:rw"
+    ports:
+      - "{{ resilio_web_port }}:8888"
+      - "{{ resilio_port }}:55555"
+    env:
+      TZ: "{{ ansible_timezone }}"
+      PUID: "{{ resilio_user_id }}"
+      PGID: "{{ resilio_group_id }}"
+    restart_policy: unless-stopped
+    memory: "{{ resilio_memory }}"
+    labels:
+      traefik.enable: "{{ resilio_available_externally | string }}"
+      traefik.http.routers.resilio.rule: "Host(`{{ resilio_hostname }}.{{ ansible_www_domain }}`)"
+      traefik.http.routers.resilio.tls.certresolver: "letsencrypt"
+      traefik.http.routers.resilio.tls.domains[0].main: "{{ ansible_www_domain }}"
+      traefik.http.routers.resilio.tls.domains[0].sans: "*.{{ ansible_www_domain }}"
+      traefik.http.services.resilio.loadbalancer.server.port: "8888"
+      traefik.http.routers.resilio.middlewares: traefik-forward-auth

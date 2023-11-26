@@ -28,6 +28,7 @@ provisioner:
         downloads_root: /downloads
         movies_root: /movies
         music_root: /music
+        nextcloud_root: /nextcloud
         photos_root: /photos
         podcasts_root: /podcasts
         torrents_root: /torrents

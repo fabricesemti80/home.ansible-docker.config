@@ -1,0 +1,19 @@
+---
+resilio_enabled: false
+resilio_available_externally: false
+
+# directories
+resilio_data_directory: "{{ docker_home }}/resilio/config"
+resilio_baqckup_directory: "{{ docker_home }}/backups_root"
+
+# uid / gid
+resilio_user_id: "0"
+resilio_group_id: "0"
+
+# network
+resilio_web_port: "8888"
+resilio_port: "55555"
+resilio_hostname: "resilio"
+
+# specs
+resilio_memory: 2g
